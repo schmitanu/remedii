@@ -72,14 +72,14 @@ export default {
     }
   },
   router: {
-    base: process.env.NODE_ENV === 'dev' ? '/' : '/'
+    base: process.env.NODE_ENV === 'dev' ? '/' : '/nuxt-dist'
   },
   buildDir: 'nuxt-dist',
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: true,
-    publicPath: '/',
+    publicPath: '/nuxt-dist',
     // publicPath: process.env.NODE_ENV === "production" ? "/epicenter/" : "/epicenter/",
     // ssr: false,
 
