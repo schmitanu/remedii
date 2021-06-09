@@ -71,8 +71,47 @@ export default {
       }
     }
   },
+  router: {
+    base: process.env.NODE_ENV === 'dev' ? '/' : '/'
+  },
+  buildDir: 'nuxt-dist',
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS: true,
+    publicPath: '/',
+    // publicPath: process.env.NODE_ENV === "production" ? "/epicenter/" : "/epicenter/",
+    // ssr: false,
+
+    configureWebpack:{
+      optimization: {
+        splitChunks: {
+          minSize: 10000,
+          maxSize: 240000,
+        }
+      }
+    },
+    html:{
+      minify:{
+        collapseBooleanAttributes: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true,
+        processConditionalComments: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        trimCustomFragments: true,
+        useShortDoctype: true,
+        minifyURLs: true,
+        removeComments: true,
+        removeEmptyElements: true,
+        preserveLineBreaks: false,
+        collapseWhitespace: true
+      }
+    },
+
+    extend (config, ctx) {
+
+    }
   }
 }
